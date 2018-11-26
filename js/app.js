@@ -1,6 +1,13 @@
+var url = window.location.href;
+var swLocation = '/twittor/sw.js';  // twittor es el nombre de nuestra carpeta en gitHub
+
+
 // Service Worker
 if ( navigator.serviceWorker) {
-    navigator.serviceWorker.register('/sw.js');
+    if (url.includes('localhost')) {
+       swLocation = '/sw.js'  
+    }
+    navigator.serviceWorker.register(swLocation);
 }
 
 
